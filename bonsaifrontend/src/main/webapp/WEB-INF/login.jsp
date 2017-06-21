@@ -14,7 +14,7 @@
 <body>
 
 
-	<form>
+	<form method="post">
 		<div class="container">
 			<div class="jumbotron">
 				

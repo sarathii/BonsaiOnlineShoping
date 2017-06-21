@@ -15,16 +15,13 @@
     <servlet-name>frontcontroller</servlet-name>  
     <url-pattern>/login</url-pattern>  
 </servlet-mapping>  
-<listener>
-     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-</listener>
+
 <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-        /WEB-INF/frontcontroller-servlet.xml
+        /WEB-INF/
     </param-value>
 </context-param>
 
 
 </web-app>
-
