@@ -1,19 +1,19 @@
-package com.bonsai.bonsaibackend.categorytestcase;
+package com.Bonsai.backend.testcae;
 
 import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.bonsai.bonsaibackend.dao.SupplierDao;
-import com.bonsai.bonsaibackend.model.ModCategory;
-import com.bonsai.bonsaibackend.model.Modsupplier;
+import com.Bonsai.backend.dao.SupplierDao;
+import com.Bonsai.backend.model.Modsupplier;
+
 
 
 public class Supliertest {
 	public static void main(String args[])
 	{
 	 AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
-	context.scan("com.bonsai");
+	context.scan("com.bonsai.backend");
 	context.refresh();
 	
 	SupplierDao supplierdao=(SupplierDao)context.getBean("supplierdao");

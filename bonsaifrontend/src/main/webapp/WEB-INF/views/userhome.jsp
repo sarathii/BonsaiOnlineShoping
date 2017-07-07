@@ -2,9 +2,9 @@
 
 <html>
 <head>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="bootstrap/css/bootstrap.css.min" rel="stylesheet">
 <meta name="viewport" content="width=device-width initial-scale=1">
-
+<%@ include file="Head.jsp"%>
 
 <title>productpage</title>
 </head>
@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-sm-4 col-lg-3 col-xs-12">
 			<a href="images/maple.jpg" style="width:100%;height:300px;" class="thumbnail img-responsive"><p>maple tree</p>
-				<img src="images/maple.jpg" style="width:100%;heght:300px;"><p class="bold">Price:<small>5000</small></p></a>
+				<img src="images/maple.jpg" style="width:100%;height:300px;"><p class="bold">Price:<small>5000</small></p></a>
 				
 		</div>
 		<div class="col-sm-4 col-lg-3 col-xs-12">

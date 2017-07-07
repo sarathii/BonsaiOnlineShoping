@@ -1,17 +1,19 @@
-package com.bonsai.bonsaibackend.dao;
+package com.Bonsai.backend.dao;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import com.bonsai.bonsaibackend.model.Modsupplier;
+import com.Bonsai.backend.model.Modsupplier;
 
+
+@Repository()
 public class SupplierDao {
 	@Autowired
 	SessionFactory sessionfactory;
@@ -44,7 +46,7 @@ public class SupplierDao {
 	public List<Modsupplier> supList() {
 		Session session = sessionfactory.openSession();
 		Query query = session.createQuery("from ModCategory");
-		List<Modsupplier> list = query.list();
+		List<com.Bonsai.backend.model.Modsupplier> list = query.list();
 		session.close();
 		return list;
 
