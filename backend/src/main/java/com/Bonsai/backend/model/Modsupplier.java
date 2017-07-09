@@ -6,10 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+//@Entity
 @Table()
 public class Modsupplier {
-	@Id
+	/*@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	int supid;
 	String supname,supadress;
@@ -32,5 +32,5 @@ public class Modsupplier {
 		this.supadress = supadress;
 	}
 	
-
+*/
 }

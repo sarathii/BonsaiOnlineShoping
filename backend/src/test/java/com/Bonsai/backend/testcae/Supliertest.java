@@ -10,7 +10,7 @@ import com.Bonsai.backend.model.Modsupplier;
 
 
 public class Supliertest {
-	public static void main(String args[])
+	/*public static void main(String args[])
 	{
 	 AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 	context.scan("com.bonsai.backend");
@@ -33,5 +33,5 @@ public class Supliertest {
 	
 	
 	}
-
+*/
 }

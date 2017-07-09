@@ -1,11 +1,6 @@
-package com.bons;
+package com.Bonsai;
 
-import java.util.Collection;
 
-import javax.servlet.http.HttpSession;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +13,6 @@ public class Pagecontroller {
 		return "index";
 	}
 	
-
-
-
 	@RequestMapping("/Category")
 	public String cat() {
 
@@ -36,7 +28,6 @@ public class Pagecontroller {
 	public String reg() {
 		return "Register";
 	}
-
 	
 	@RequestMapping("/home")
 	public String gethome()

@@ -43,5 +43,4 @@ public class ModCategory {
 		this.catdscrptn = catdscrptn;
 	}
 	
-
 }

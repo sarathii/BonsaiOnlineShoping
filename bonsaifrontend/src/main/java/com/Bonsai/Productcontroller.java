@@ -1,4 +1,4 @@
-package com.bons;
+package com.Bonsai;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,15 +19,16 @@ import com.Bonsai.backend.model.Modproduct;
 
 
 
+
 @Controller
 public class Productcontroller {
 
 	@Autowired
-	ProductDao productdao;
-		
-	@Autowired	
-	CategoryDao categorydao;
-	
+	ProductDao productDao;
+
+	@Autowired
+	CategoryDao categoryDao;
+
 	@RequestMapping("/Product")
 	public String showProduct(Model m) {
 
@@ -36,52 +37,52 @@ public class Productcontroller {
 		m.addAttribute("catlist", this.getCatList());
 		m.addAttribute("product", product);
 
-		List<Modproduct> prolist = productdao.proList();
+		List<Modproduct> prolist = productDao.proList();
 		m.addAttribute("list", prolist);
 
-		return "Product";
+		return "adminhome";
 	}
 
-	@RequestMapping(value = "/InsertProduct", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertProduct(@ModelAttribute("product") Modproduct product, Model m) {
 		System.out.println("---Product Inserted---");
-		productdao.insertproduct(product);
+		productDao.insertproduct(product);
 
-		List<Modproduct> prodlist = productdao.proList();
+		List<Modproduct> prodlist = productDao.proList();
 		m.addAttribute("prodlist", prodlist);
 
-		return "Product";
+		return "adminhome";
 	}
 
-		@RequestMapping(value = "/updateProduct/{prodid}")
-	public String updateProduct(@PathVariable("prodid") int prodid, Model m) {
+	@RequestMapping(value = "/updateProduct/{pid}")
+	public String updateProduct(@PathVariable("pid") int pid, Model m) {
 
-		Modproduct product = productdao.getproduct(prodid);
+		Modproduct product = productDao.getproduct(pid);
 		m.addAttribute("product", product);
 		m.addAttribute("catlist", this.getCatList());
-		List<Modproduct> prodlist = productdao.proList();
+		List<Modproduct> prodlist = productDao.proList();
 		m.addAttribute("prodlist", prodlist);
 
-		return "redirect:/Product";
+		return "redirect:/adminhome";
 	}
 
-	@RequestMapping(value = "/deleteProduct/{prodid}")
+	@RequestMapping(value = "/deleteProduct/{id}")
 	public String deleteProduct(@PathVariable("prodid") int prodid, Model m) {
 
-		Modproduct product = productdao.getproduct(prodid);
-		productdao.delete(product);
+		Modproduct product = productDao.getproduct(prodid);
+		productDao.delete(product);
 
 		Modproduct product1 = new Modproduct();
 		m.addAttribute("product", product1);
 		m.addAttribute("catlist", this.getCatList());
-		List<Modproduct> prodlist = productdao.proList();
+		List<Modproduct> prodlist = productDao.proList();
 		m.addAttribute("prodlist", prodlist);
 
-		return "product";
+		return "adminhome";
 	}
 
 	public LinkedHashMap<Integer, String> getCatList() {
-		List<ModCategory> list = categorydao.catList();
+		List<ModCategory> list = categoryDao.catList();
 
 		LinkedHashMap<Integer, String> catlist = new LinkedHashMap<Integer, String>();
 
@@ -91,5 +92,5 @@ public class Productcontroller {
 
 		return catlist;
 	}
-}
 
+}

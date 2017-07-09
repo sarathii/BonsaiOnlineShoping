@@ -4,9 +4,10 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,6 @@ import com.bonsai.bonsaibackend.model.Modproduct;
 
 @Repository("productdao")
 public class ProductDao {
-	private static final ModCategory ModCategory = null;
 	@Autowired
 	SessionFactory sessionfactory;
 

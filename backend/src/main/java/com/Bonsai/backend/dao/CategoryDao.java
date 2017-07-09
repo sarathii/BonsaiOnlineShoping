@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -12,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.Bonsai.backend.model.ModCategory;
-
-
 
 @Repository("categoryDao")
 public class CategoryDao {
@@ -26,10 +23,9 @@ public class CategoryDao {
 	}
 
 	@Transactional
-	public void insertcategory(ModCategory modcategory) {
+	public void insertcategory(ModCategory modCategory) {
 		System.out.println("it is in insertion method");
-		sessionFactory.getCurrentSession().saveOrUpdate(modcategory);
-		
+		sessionFactory.getCurrentSession().saveOrUpdate(modCategory);
 
 		System.out.println("getcurrentsession invoked");
 
@@ -39,37 +35,36 @@ public class CategoryDao {
 	@Transactional
 	public ModCategory getcategory(int catid) {
 		Session session = sessionFactory.openSession();
-		
-		ModCategory modcategory = (ModCategory) session.get(ModCategory.class, catid);
+
+		ModCategory modCategory = (ModCategory) session.get(ModCategory.class, catid);
 		session.close();
 		System.out.println("displayed ");
-		return modcategory;
-		
+		return modCategory;
 
+	}
 
-		
-	}
-/*	@Transactional
-public void updatecategory(ModCategory modcategory)
-{
-	sessionFactory.getCurrentSession().update(modcategory);
-	System.out.println("updated ");
-	//session.update(modcategory);
-}*/
 	@Transactional
-	public void deletecategory(ModCategory modcategory) {
-		Session session =sessionFactory.getCurrentSession();
-session.delete(modcategory);
-System.out.println("deleted");
+	public void updatecategory(ModCategory modcategory) {
+		sessionFactory.getCurrentSession().update(modcategory);
+		System.out.println("updated ");
+		// session.update(modCategory);
 	}
+
 	@Transactional
- public List<ModCategory> catList() {
-	Session session = sessionFactory.openSession();
-	Query query=session.createQuery("from ModCategory");
-	List<ModCategory> list=query.list();
-	session.close();
-	return list;
-	
-}
+	public void deletecategory(ModCategory modCategory) {
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(modCategory);
+		System.out.println("deleted");
+	}
+
+	@Transactional
+	public List<ModCategory> catList() {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from ModCategory");
+		List<ModCategory> list = query.list();
+		session.close();
+		return list;
+
+	}
 
 }

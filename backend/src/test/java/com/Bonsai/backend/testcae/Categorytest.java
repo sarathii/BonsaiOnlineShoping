@@ -20,30 +20,30 @@ import com.Bonsai.backend.model.ModCategory;
 			context.refresh();
 			System.out.println("refreshed");
 			// inserting category object
-			CategoryDao categorydao = (CategoryDao)context.getBean("categorydao");
+			CategoryDao categoryDao = (CategoryDao)context.getBean("categoryDao");
 			
 			System.out.println("model cls obj creation");
-			/*ModCategory modcategory = new ModCategory();
+			/*modCategory modCategory = new modCategory();
 			System.out.println("model class obj created");
 			// insertion
-			modcategory.setCatname("mangotree");
+			modCategory.setCatname("mangotree");
 			
-			modcategory.setCatdscrptn("mango tree imported");
-			categorydao.insertcategory(modcategory);
-			ModCategory modcategory=(ModCategory)categorydao.getcategory(33);
-	System.out.println(modcategory.getCatname());
-			System.out.println(modcategory.getCatdscrptn());
+			modCategory.setCatdscrptn("mango tree imported");
+			categoryDao.insertcategory(modCategory);
+			modCategory modCategory=(modCategory)categoryDao.getcategory(33);
+	System.out.println(modCategory.getCatname());
+			System.out.println(modCategory.getCatdscrptn());
 			System.out.println("showing data");
-			categorydao.deletecategory(modcategory); 
+			categorydao.deletecategory(modCategory); 
 			System.out.println("update process");
-		modcategory.setCatname("orangebonsai");
-			modcategory.setCatdscrptn("smallfruits");
-			categorydao.insertcategory(modcategory);*/
-			List<ModCategory> list=categorydao.catList();
+		modCategory.setCatname("orangebonsai");
+			modCategory.setCatdscrptn("smallfruits");
+			categorydao.insertcategory(modCategory);*/
+			List<ModCategory> list=categoryDao.catList();
 				
-				for(ModCategory modcategory:list)
+				for(ModCategory modCategory:list)
 				{
-					System.out.println("catid" + ":" + modcategory.getCatid() +"name :"+ modcategory.getCatname()+"discription :"+ modcategory.getCatdscrptn());
+					System.out.println("catid" + ":" + modCategory.getCatid() +"name :"+ modCategory.getCatname()+"discription :"+ modCategory.getCatdscrptn());
 				}
 				
 			((AnnotationConfigApplicationContext)context).close();

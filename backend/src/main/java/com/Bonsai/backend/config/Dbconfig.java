@@ -14,6 +14,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.Bonsai.backend.dao.CategoryDao;
@@ -21,30 +22,30 @@ import com.Bonsai.backend.dao.ProductDao;
 import com.Bonsai.backend.dao.SupplierDao;
 import com.Bonsai.backend.model.*;
 
-
+@Repository
 @Configuration
-@ComponentScan("com.bonsai.bonsaibackend")
+@ComponentScan("com.bonsai.backend")
 @EnableTransactionManagement
 public class Dbconfig {
 	@Autowired
-	@Bean("datasource")
-	public DataSource getdatasource() {
+	@Bean("dataSource")
+	public DataSource getDataSource() {
 		System.out.println("datasource obj creation");
-		DriverManagerDataSource datasource = new DriverManagerDataSource();
-		datasource.setDriverClassName("org.h2.Driver");
-		datasource.setUrl("jdbc:h2:tcp://localhost/~/test");
-		datasource.setUsername("sa");
-		datasource.setPassword("");
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("org.h2.Driver");
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
+		dataSource.setUsername("sa");
+		dataSource.setPassword("");
 		System.out.println("datasource created");
-		return datasource;
+		return dataSource;
 
 	}
 
 	@Autowired
-	@Bean("sessionfactory")
+	@Bean("sessionFactory")
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		System.out.println("sessionfactory obj creation");
-		LocalSessionFactoryBuilder sessionbuilder = new LocalSessionFactoryBuilder(dataSource);
+		LocalSessionFactoryBuilder sessionbuilder = new LocalSessionFactoryBuilder(getDataSource());
 		System.out.println("property creation");
 		Properties pro = new Properties();
 		pro.setProperty("hibernate.hbm2ddl.auto", "update");
@@ -52,13 +53,14 @@ public class Dbconfig {
 		pro.put("hibernate.show_sql", "true");
 		sessionbuilder.addProperties(pro);
 		System.out.println("properties added");
-		sessionbuilder.addAnnotatedClass(ModCategory.class);
+		sessionbuilder.scanPackages("com.Bonsai.backend");
+		/*sessionbuilder.addAnnotatedClass(ModCategory.class);
 		sessionbuilder.addAnnotatedClass(Modproduct.class);
-		sessionbuilder.addAnnotatedClass(Modsupplier.class);
+		sessionbuilder.addAnnotatedClass(Modsupplier.class);*/
 		System.out.println("mapped");
-		SessionFactory sessionfactory = sessionbuilder.buildSessionFactory();
+		SessionFactory sessionFactory = sessionbuilder.buildSessionFactory();
 		System.out.println("sessionfactory object created");
-		return sessionfactory;
+		return sessionFactory;
 	}
 
 	@Autowired
@@ -74,9 +76,9 @@ public class Dbconfig {
 	@Bean("categoryDao")
 	public CategoryDao getcategorydao(SessionFactory sessionFactory) {
 		System.out.println("im in category dao config");
-		CategoryDao categorydao = new CategoryDao(sessionFactory);
+		CategoryDao categoryDao = new CategoryDao(sessionFactory);
 		System.out.println("category dao created");
-		return categorydao;
+		return categoryDao;
 	}
 
 	@Autowired
@@ -90,11 +92,10 @@ public class Dbconfig {
 	}
 	@Autowired
 	@Bean("supplierDao")
-	 SupplierDao supplierDao(SessionFactory sessionFactory)
+	public  SupplierDao supplierDao(SessionFactory sessionFactory)
 	{
 		System.out.println("im in supplier comnfig");
 	SupplierDao supplierDao=new SupplierDao(sessionFactory);
 	return supplierDao;
 	
-	}
-}
+	}}

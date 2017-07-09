@@ -2,12 +2,14 @@ package com.bonsai.bonsaibackend.dao;
 
 import java.util.List;
 
+
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -33,6 +35,7 @@ public class CategoryDao {
 		System.out.println("getcurrentsession invoked");
 
 		System.out.println("inserted ");
+		
 	}
 
 	@Transactional
@@ -40,7 +43,7 @@ public class CategoryDao {
 		Session session = sessionfactory.openSession();
 		
 		ModCategory modcategory = (ModCategory) session.get(ModCategory.class, catid);
-		session.close();
+	
 		System.out.println("displayed ");
 		return modcategory;
 		

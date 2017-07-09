@@ -1,4 +1,4 @@
-package com.bons;
+package com.Bonsai;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,13 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.Bonsai.backend.dao.ProductDao;
 import com.Bonsai.backend.model.Modproduct;
 
-
-
 @Controller
 public class Logincontroller {
 
-	/*@Autowired
-	ProductDao productdao;
+	@Autowired
+	ProductDao productDao;
 	
 	@RequestMapping("/login_success")
 	public String loginSuccess(HttpSession session,Model m)
@@ -49,7 +47,7 @@ public class Logincontroller {
 			}
 			else
 			{
-				List<Modproduct> prolist=productdao.proList();
+				List<Modproduct> prolist=productDao.proList();
 				m.addAttribute("prolist",prolist);
 				
 				page="userhome";
@@ -57,7 +55,7 @@ public class Logincontroller {
 		}
 		
 		return page;
-	}*/
+	}
 	
 }
 

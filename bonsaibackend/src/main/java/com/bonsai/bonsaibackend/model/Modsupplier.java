@@ -7,11 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table()
+@Table(name="supplier")
 public class Modsupplier {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue
 	int supid;
+	
 	String supname,supadress;
 	public int getSupid() {
 		return supid;
