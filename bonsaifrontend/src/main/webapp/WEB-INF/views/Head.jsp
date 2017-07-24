@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html"%>
-
+ 
 <html>
 <head>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -13,18 +13,17 @@
 <body >
 	<!-- starting nav bar -->
 	<div class="container">
-		<nav class="navbar navbar navbar-default navbar-fixed-top col-xs-12" style= "background-color:#FDEBD0">
+		<nav class="navbar navbar navbar-default navbar-fixed-top col-xs-12" style= "background-color:#666666">
 
 			<div class="navbar-header">
 				<a class="navbar-brand"  ></a>
 				<ul class="nav navbar-nav">
-					<li><a href="home" ><span
-							class="glyphicon glyphicon-home img-thumbnail"></span></a></li>
-					<li ><a href="login">login</a></li>
-					<li><a href="Category">Category</a></li>
-					<li><a href="Product">Product</a></li>
-					<li><a href="Supplier">Supplier</a></li>
-					<li><a href="Cart">Cart</a></li>
+					<li><a href="home" ><span 
+							class="glyphicon glyphicon-home img-thumbnail" ></span></a></li>
+					<li ><a href="login" style="color:white">login</a></li>
+					<li><a href="Register" style="color:white">Register</a></li>
+					<li><a href="aboutus" style="color:white">aboutus</a></li>
+					
 				</ul>
 			</div>
 		</nav>

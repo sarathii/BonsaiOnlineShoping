@@ -1,41 +1,35 @@
 <%@ page language="java" contentType="text/html"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
-<link href="bootstrap/css/bootstrap.css.min" rel="stylesheet">
-<meta name="viewport" content="width=device-width initial-scale=1">
-<%@ include file="Head.jsp"%>
+<%@ include file="Head.jsp" %>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 
-<title>productpage</title>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width initial-scale=1">
 </head>
 <body>
-	<div class="container">
-		<div class="col-sm-4  col-lg-3 c col-xs-12 ">
-			<a href="images/shimaficus.jpg" style="width:100%;height:300px;" class="thumbnail img-responsive"><p>shimaficusplant</p>
-				<img src="images/shimaficus.jpg"></a>
-		</div>
-		<div class="col-sm-4 col-lg-3 col-xs-12">
-			<a href="images/maple.jpg" style="width:100%;height:300px;" class="thumbnail img-responsive"><p>maple tree</p>
-				<img src="images/maple.jpg" style="width:100%;height:300px;"><p class="bold">Price:<small>5000</small></p></a>
-				
-		</div>
-		<div class="col-sm-4 col-lg-3 col-xs-12">
-			<a href="images/sakuraflower.jpg" style="width:100%;height:300px;" class="thumbnail img-responsive"><p>sakuraflower</p>
-				<img src="images/sakuraflower.jpg"></a>
-		</div>
-		<div class="col-sm-4 col-lg-3 col-xs-12">
-			<a href="images/pri.jpg" style="width:100%;height:300px;" class="thumbnail img-responsive"><p>japnese anjura flower</p>
-				<img src="images/pri.jpg"></a>
-		</div>
-		<div class="col-sm-4 col-lg-3 col-xs-12">
-			<a href="images/imported maple tree.jpg" style="width:100%;height:300px;" class="thumbnail img-responsive"><p>imported maple tree</p>
-				<img src="images/imported maple tree.jpg"></a>
-		</div>
-		<div class="col-sm-4 col-lg-3 col-xs-12">
-			<a href="images/banyan.jpeg" style="width:100%;height:300px;" class="thumbnail img-responsive"><p>precious banyan tree</p>
-				<img src="images/banyan.jpeg"></a>
-		</div>
-	</div>
+</br>
+</br>
+</br>
+<c:url value="/resources/images/products/" var="proImages" />
 
+		<c:forEach items="${prodlist}" var="product">
+			
+				<div ><img src="${proImages}${product.pname}.jpg" width="250px"
+					height="250px"></div>
+				<div>product id: ${product.pid}</div>
+				<div>product name: ${product.pname}</div>
+				<div >price : ${product.price}</div>
+				<div><a href="<c:url value="productdscrptn/${product.pid}"/>">view</a>
+				</div>
+			<hr>
+		</c:forEach>
+	</table>
 </body>
 </html>

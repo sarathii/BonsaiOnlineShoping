@@ -17,8 +17,10 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.Bonsai.backend.dao.CartDao;
 import com.Bonsai.backend.dao.CategoryDao;
 import com.Bonsai.backend.dao.ProductDao;
+import com.Bonsai.backend.dao.RegisterDao;
 import com.Bonsai.backend.dao.SupplierDao;
 import com.Bonsai.backend.model.*;
 
@@ -98,4 +100,21 @@ public class Dbconfig {
 	SupplierDao supplierDao=new SupplierDao(sessionFactory);
 	return supplierDao;
 	
-	}}
+	}
+	@Autowired
+	@Bean("registerdao")
+	public RegisterDao registerDao(SessionFactory sessionFactory)
+	{System.out.println("in regdao");
+	RegisterDao registerDao=new RegisterDao (sessionFactory);
+	return  registerDao;
+		}
+	@Autowired
+	@Bean("cartdao")
+	public CartDao cartdao(SessionFactory sessionFactory)
+	{
+		CartDao cartdao=new CartDao(sessionFactory);
+		
+	return cartdao;	
+	}
+	
+	}

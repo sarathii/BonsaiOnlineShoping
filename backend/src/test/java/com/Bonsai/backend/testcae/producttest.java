@@ -15,22 +15,25 @@ public class producttest {
 		context.scan("com.bonsai.backend");
 		context.refresh();
 		ProductDao productDao = (ProductDao) context.getBean("productDao");
-		// Modproduct product=new Modproduct();
-		/*
-		 * product.setPname("bonsai"); product.setPdscrptn("tree will be short"
-		 * ); product.setPrice(5000); product.setQuantity(1);
-		 * product.setSupid(111); product.setCatid(600);
-		 * productdao.insertproduct(product); System.out.println("inserted");
-		 * product.getPname(); product.getCatid(); product.getPdscrptn();
-		 * product.getPrice(); product.getQuantity(); product.getSupid();
-		 */
-		Modproduct product = (Modproduct) productDao.getproduct(0);
-		List<Modproduct> list = productDao.proList();
+		 Modproduct product=new Modproduct();
+		product.setPname("viscous");
+		 product.setPdscrptn("tree will be short" );
+		 product.setPrice(5000);
+		 product.setQuantity(190);
+		product.setSupid(111);
+		product.setCatid(60);
+		productDao.insertproduct(product);
+		System.out.println("inserted");
+	 product.getPname(); product.getCatid(); product.getPdscrptn();
+		 product.getPrice(); product.getQuantity(); product.getSupid();
+		 
+		Modproduct product1 = (Modproduct) productDao.getproduct(0);
+	List<Modproduct> list = productDao.proList();
 
-		for (Modproduct productli : list) {
+	 /*	for (Modproduct productli : list) {
 			System.out.println("productid" + ":" + productli.getCatid() + "name :" + productli.getPname());
 		}
-		productDao.delete(product);
+		productDao.delete(product);*/
 		((AnnotationConfigApplicationContext) context).close();
 	}
 }

@@ -19,7 +19,7 @@ public class ModCategory {
 	@Id
 	@Column
 	@GeneratedValue
- int catid;
+ int  catid;
 	
 	
 	String catname,catdscrptn;
@@ -27,15 +27,25 @@ public class ModCategory {
 	public String getCatname() {
 		return catname;
 	}
-	public int getCatid() {
-		return catid;
-	}
-	public void setCatid(int catid) {
-		this.catid = catid;
-	}
+
+
+
+
+
+
 	public void setCatname(String catname) {
 		this.catname = catname;
 	}
+	public int getCatid() {
+		return catid;
+	}
+
+
+
+	public void setCatid(int catid) {
+		this.catid = catid;
+	}
+
 	public String getCatdscrptn() {
 		return catdscrptn;
 	}

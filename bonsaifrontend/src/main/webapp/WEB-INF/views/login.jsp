@@ -3,6 +3,7 @@
 
 <html>
 <head>
+<%@ include file="Head.jsp" %>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>  
 	
@@ -12,20 +13,27 @@
 <meta name="viewport" content="width=device-width initial-scale=1">
 </head>
 <body>
+</br>
+</br>
+</br>
+</br>
 <div class="container">
+<div class="jumbotron">
 <form action="perform_login" method="post">
 
 	
 	
 		<div class="form-group">
-				Userid:<input type="text" id="username" placeholder="enter user name"class="form-control"></td>
+				Userid:<input type="text" name="username" placeholder="enter user name"class="form-control"></td>
 			
-				Password:<input type="text" id="password" placeholder="enter password" class="form-control"></td>
+				Password:<input type="password" name="password" placeholder="enter password" class="form-control"></td>
 			
-			<input type="submit" value="login" class="center-block">
+			<input type="submit" value="login" class="center-block">dont have an account yet?click here to <a href="Register">register
+					</a>
 			</div>
-		</div>
+		
 	</form>
-	
+	</div>
+	</div>
 </body>
 </html>

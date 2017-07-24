@@ -2,34 +2,36 @@
 
 <html>
 <head>
+<%@ include file="Head.jsp" %>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>  
+	
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link href="bootstrap/css/bootstrap.css.min" rel="stylesheet">
 <meta name="viewport" content="width=device-width initial-scale=1">
-<%@ include file="Head.jsp"%>
+
 <title>registration form</title>
 </head>
 <body>
-
-	<form>
+</br>
+</br>
+	<form action=reg method=post>
 		<div class="container">
 			<div class="jumbotron">
 				<div class="form-group">
-					NAME:<input type="text" class="form-control" id=Rname
-						placeholder="enter name" required="required"> 
-						USERID:<input
-						type="email" class="form-control" id="Rid"
-						placeholder="enter email" required="required"> 
-						<div class="col-sm-6">
-						address<input type="text" class="form-control" id="adrs" required="required"/>
-						DateOfBirth:<input type="date" required="required" id="dob" placeholder="enter DOB"></div><div class="col-sm-6"></div>
-						Phonenumber:<input type="phoneno" id="phone" required="required"placeholder="enter phoneno"></div>
-						PASSWORD:<input
-						type="password" class="form-control" id="Rpswrd"
-						placeholder="enter password" required="required">
-					CONFIRMATION PASSWORD:<input type="password" class="form-control"
-						id="Rcnfrm" placeholder="enter ur password for confirmation"
-						required="required"> <input type="submit" value="submit"
-						class=center-block> already Registered?click here to <a href="login.jsp">login
+					
+						USERNAME:<input
+						type="text" class="form-control" name="username"
+						placeholder="enter username" required="required"> 
+						
+						ADDRESS<input type="text" class="form-control" name="adrs" required="required"/>
+	
+						PASSWORD:<input type="password" class="form-control" name="password" placeholder="enter password" required="required">
+					
+						<input type="hidden" class="form-control" name="role" value="ROLE_USER" >
+						<input type="hidden" class="form-control" name="enable" value="False" >
+						<input type="submit" value="submit" class=center-block> already Registered?click here to <a href="login">login
 					</a>
 				</div>
 			</div>

@@ -10,14 +10,10 @@ public class Pagecontroller {
 
 	@RequestMapping("/")
 	public String show() {
-		return "index";
+		return "home";
 	}
 	
-	@RequestMapping("/Category")
-	public String cat() {
 
-		return "Category";
-	}
 
 	@RequestMapping("/login")
 	public String log() {

@@ -24,9 +24,9 @@ public class Logincontroller {
 	@RequestMapping("/login_success")
 	public String loginSuccess(HttpSession session,Model m)
 	{
-		System.out.println("--Login Successful---");
+		System.out.println("login success");
 		
-		String page=null;
+String page=null;
 		
 		boolean loggedIn=true;
 		
@@ -40,21 +40,21 @@ public class Logincontroller {
 		
 		for(GrantedAuthority role:authorities)
 		{
-			System.out.println("---Role:"+role.getAuthority()+" User Name:"+username+"----");
+			System.out.println("Role:"+role.getAuthority()+" User Name:"+username);
 			if(role.getAuthority().equals("ROLE_ADMIN"))
 			{
-				page="adminhome";
+				page= "show product";
 			}
 			else
 			{
 				List<Modproduct> prolist=productDao.proList();
 				m.addAttribute("prolist",prolist);
 				
-				page="userhome";
+				page= "user";
 			}
 		}
 		
-		return page;
+	return page;
 	}
 	
 }

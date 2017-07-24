@@ -3,8 +3,10 @@ package com.Bonsai.backend.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="product")
@@ -13,6 +15,9 @@ public class Modproduct {
 	int pid;
 	int catid,supid, price, quantity;
 	String pname, pdscrptn;
+	
+	@Transient
+	private MultipartFile pimage;
 
 	public int getPid() {
 		return pid;
@@ -69,4 +74,15 @@ public class Modproduct {
 	public void setPdscrptn(String pdscrptn) {
 		this.pdscrptn = pdscrptn;
 	}
+
+	public MultipartFile getPimage() {
+		return pimage;
+	}
+
+	public void setPimage(MultipartFile pimage) {
+		this.pimage = pimage;
+	}
+
+
+
 }

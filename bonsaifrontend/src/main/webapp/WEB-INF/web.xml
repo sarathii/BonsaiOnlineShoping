@@ -1,21 +1,8 @@
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
-		
-	<servlet>
-		<servlet-name>frontcontroller</servlet-name>
-		<servlet-class>
-			org.springframework.web.servlet.DispatcherServlet
-		</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>frontcontroller</servlet-name>
-		<url-pattern>/</url-pattern>
-		
-	</servlet-mapping>
-<!-- 
-	<context-param>
+  	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring-security.xml</param-value>
+		<param-value>/WEB-INF/security-servlet.xml,/WEB-INF/frontcontroller-servlet.xml</param-value>
 	</context-param>
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
@@ -26,15 +13,30 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<listener>
+
+
+	
+
+
+	<servlet>
+		<servlet-name>frontcontroller</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>frontcontroller</servlet-name>
+		<url-pattern>/</url-pattern>
+
+	</servlet-mapping>
+ 
+<listener>
 		<listener-class>
 			org.springframework.web.context.ContextLoaderListener
 		</listener-class>
-	</listener> 
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring-security.xml</param-value>
-	</context-param>-->
+	</listener>
+
 </web-app>
 
  
